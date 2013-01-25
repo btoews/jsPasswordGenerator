@@ -1,0 +1,541 @@
+<html>
+  <head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+  <body>
+    <div id='password_generator'>
+      <div id='entropy'>
+        <label>Entropy:</label>
+        <input id="entropy_slider_input" type="range" min="0" max="656" disabled />
+        <input id="entropy_text_input" type="text" disabled />
+      </div>
+
+      <div id='length'>
+        <label>Length:</label>
+        <input id="length_slider_input" type="range" min="1" max="100" />
+        <input id="length_text_input" type="text" />
+      </div>
+
+      <div id='charset'>
+        <label>Character Set</label>
+        <input id='charset_text_input' type='text' />
+        <label>Length:</label>
+        <input id='charset_length_text_input' type='text' disabled />
+      </div>
+
+      <div id="charset_selector">
+        <div class='char-line'>
+          <input type='checkbox' class='row-checkbox checkbox' id='row-checkbox-lower' checked>
+          <label class='checkbox-label' for='row-checkbox-lower'>
+          <div class='checkbox-label-inner'>Lower: </div>
+          </label>
+
+          <span class='char-checkbox-container'>
+            <input type='checkbox' class='char-checkbox checkbox' id='char-a' value='a' checked>
+            <label class='checkbox-label' for='char-a'>
+            <div class='checkbox-label-inner'>a</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-b' value='b' checked>
+            <label class='checkbox-label' for='char-b'>
+            <div class='checkbox-label-inner'>b</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-c' value='c' checked>
+            <label class='checkbox-label' for='char-c'>
+            <div class='checkbox-label-inner'>c</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-d' value='d' checked>
+            <label class='checkbox-label' for='char-d'>
+            <div class='checkbox-label-inner'>d</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-e' value='e' checked>
+            <label class='checkbox-label' for='char-e'>
+            <div class='checkbox-label-inner'>e</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-f' value='f' checked>
+            <label class='checkbox-label' for='char-f'>
+            <div class='checkbox-label-inner'>f</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-g' value='g' checked>
+            <label class='checkbox-label' for='char-g'>
+            <div class='checkbox-label-inner'>g</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-h' value='h' checked>
+            <label class='checkbox-label' for='char-h'>
+            <div class='checkbox-label-inner'>h</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-i' value='i' checked>
+            <label class='checkbox-label' for='char-i'>
+            <div class='checkbox-label-inner'>i</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-j' value='j' checked>
+            <label class='checkbox-label' for='char-j'>
+            <div class='checkbox-label-inner'>j</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-k' value='k' checked>
+            <label class='checkbox-label' for='char-k'>
+            <div class='checkbox-label-inner'>k</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-l' value='l' checked>
+            <label class='checkbox-label' for='char-l'>
+            <div class='checkbox-label-inner'>l</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-m' value='m' checked>
+            <label class='checkbox-label' for='char-m'>
+            <div class='checkbox-label-inner'>m</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-n' value='n' checked>
+            <label class='checkbox-label' for='char-n'>
+            <div class='checkbox-label-inner'>n</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-o' value='o' checked>
+            <label class='checkbox-label' for='char-o'>
+            <div class='checkbox-label-inner'>o</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-p' value='p' checked>
+            <label class='checkbox-label' for='char-p'>
+            <div class='checkbox-label-inner'>p</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-q' value='q' checked>
+            <label class='checkbox-label' for='char-q'>
+            <div class='checkbox-label-inner'>q</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-r' value='r' checked>
+            <label class='checkbox-label' for='char-r'>
+            <div class='checkbox-label-inner'>r</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-s' value='s' checked>
+            <label class='checkbox-label' for='char-s'>
+            <div class='checkbox-label-inner'>s</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-t' value='t' checked>
+            <label class='checkbox-label' for='char-t'>
+            <div class='checkbox-label-inner'>t</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-u' value='u' checked>
+            <label class='checkbox-label' for='char-u'>
+            <div class='checkbox-label-inner'>u</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-v' value='v' checked>
+            <label class='checkbox-label' for='char-v'>
+            <div class='checkbox-label-inner'>v</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-w' value='w' checked>
+            <label class='checkbox-label' for='char-w'>
+            <div class='checkbox-label-inner'>w</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-x' value='x' checked>
+            <label class='checkbox-label' for='char-x'>
+            <div class='checkbox-label-inner'>x</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-y' value='y' checked>
+            <label class='checkbox-label' for='char-y'>
+            <div class='checkbox-label-inner'>y</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-z' value='z' checked>
+            <label class='checkbox-label' for='char-z'>
+            <div class='checkbox-label-inner'>z</div>
+            </label>
+          </span>
+        </div>
+
+        <div class='char-line'>
+          <input type='checkbox' class='row-checkbox checkbox' id='row-checkbox-upper' checked>
+          <label class='checkbox-label' for='row-checkbox-upper'>
+          <div class='checkbox-label-inner'>Upper: </div>
+          </label>
+
+          <span class='char-checkbox-container'>
+            <input type='checkbox' class='char-checkbox checkbox' id='char-A' value='A' checked>
+            <label class='checkbox-label' for='char-A'>
+            <div class='checkbox-label-inner'>A</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-B' value='B' checked>
+            <label class='checkbox-label' for='char-B'>
+            <div class='checkbox-label-inner'>B</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-C' value='C' checked>
+            <label class='checkbox-label' for='char-C'>
+            <div class='checkbox-label-inner'>C</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-D' value='D' checked>
+            <label class='checkbox-label' for='char-D'>
+            <div class='checkbox-label-inner'>D</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-E' value='E' checked>
+            <label class='checkbox-label' for='char-E'>
+            <div class='checkbox-label-inner'>E</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-F' value='F' checked>
+            <label class='checkbox-label' for='char-F'>
+            <div class='checkbox-label-inner'>F</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-G' value='G' checked>
+            <label class='checkbox-label' for='char-G'>
+            <div class='checkbox-label-inner'>G</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-H' value='H' checked>
+            <label class='checkbox-label' for='char-H'>
+            <div class='checkbox-label-inner'>H</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-I' value='I' checked>
+            <label class='checkbox-label' for='char-I'>
+            <div class='checkbox-label-inner'>I</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-J' value='J' checked>
+            <label class='checkbox-label' for='char-J'>
+            <div class='checkbox-label-inner'>J</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-K' value='K' checked>
+            <label class='checkbox-label' for='char-K'>
+            <div class='checkbox-label-inner'>K</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-L' value='L' checked>
+            <label class='checkbox-label' for='char-L'>
+            <div class='checkbox-label-inner'>L</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-M' value='M' checked>
+            <label class='checkbox-label' for='char-M'>
+            <div class='checkbox-label-inner'>M</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-N' value='N' checked>
+            <label class='checkbox-label' for='char-N'>
+            <div class='checkbox-label-inner'>N</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-O' value='O' checked>
+            <label class='checkbox-label' for='char-O'>
+            <div class='checkbox-label-inner'>O</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-P' value='P' checked>
+            <label class='checkbox-label' for='char-P'>
+            <div class='checkbox-label-inner'>P</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-Q' value='Q' checked>
+            <label class='checkbox-label' for='char-Q'>
+            <div class='checkbox-label-inner'>Q</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-R' value='R' checked>
+            <label class='checkbox-label' for='char-R'>
+            <div class='checkbox-label-inner'>R</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-S' value='S' checked>
+            <label class='checkbox-label' for='char-S'>
+            <div class='checkbox-label-inner'>S</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-T' value='T' checked>
+            <label class='checkbox-label' for='char-T'>
+            <div class='checkbox-label-inner'>T</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-U' value='U' checked>
+            <label class='checkbox-label' for='char-U'>
+            <div class='checkbox-label-inner'>U</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-V' value='V' checked>
+            <label class='checkbox-label' for='char-V'>
+            <div class='checkbox-label-inner'>V</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-W' value='W' checked>
+            <label class='checkbox-label' for='char-W'>
+            <div class='checkbox-label-inner'>W</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-X' value='X' checked>
+            <label class='checkbox-label' for='char-X'>
+            <div class='checkbox-label-inner'>X</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-Y' value='Y' checked>
+            <label class='checkbox-label' for='char-Y'>
+            <div class='checkbox-label-inner'>Y</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-Z' value='Z' checked>
+            <label class='checkbox-label' for='char-Z'>
+            <div class='checkbox-label-inner'>Z</div>
+            </label>
+          </span>
+        </div>
+
+        <div class='char-line'>
+          <input type='checkbox' class='row-checkbox checkbox' id='row-checkbox-numeric' checked>
+          <label class='checkbox-label' for='row-checkbox-numeric'>
+          <div class='checkbox-label-inner'>Numeric: </div>
+          </label>
+
+          <span class='char-checkbox-container'>
+            <input type='checkbox' class='char-checkbox checkbox' id='char-0' value='0' checked>
+            <label class='checkbox-label' for='char-0'>
+            <div class='checkbox-label-inner'>0</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-1' value='1' checked>
+            <label class='checkbox-label' for='char-1'>
+            <div class='checkbox-label-inner'>1</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-2' value='2' checked>
+            <label class='checkbox-label' for='char-2'>
+            <div class='checkbox-label-inner'>2</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-3' value='3' checked>
+            <label class='checkbox-label' for='char-3'>
+            <div class='checkbox-label-inner'>3</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-4' value='4' checked>
+            <label class='checkbox-label' for='char-4'>
+            <div class='checkbox-label-inner'>4</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-5' value='5' checked>
+            <label class='checkbox-label' for='char-5'>
+            <div class='checkbox-label-inner'>5</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-6' value='6' checked>
+            <label class='checkbox-label' for='char-6'>
+            <div class='checkbox-label-inner'>6</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-7' value='7' checked>
+            <label class='checkbox-label' for='char-7'>
+            <div class='checkbox-label-inner'>7</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-8' value='8' checked>
+            <label class='checkbox-label' for='char-8'>
+            <div class='checkbox-label-inner'>8</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-9' value='9' checked>
+            <label class='checkbox-label' for='char-9'>
+            <div class='checkbox-label-inner'>9</div>
+            </label>
+          </span>
+        </div>
+
+        <div class='char-line'>
+          <input type='checkbox' class='row-checkbox checkbox' id='row-checkbox-special' checked>
+          <label class='checkbox-label' for='row-checkbox-special'>
+          <div class='checkbox-label-inner'>Special: </div>
+          </label>
+
+          <span class='char-checkbox-container'>
+            <input type='checkbox' class='char-checkbox checkbox' id='char-!' value='!' checked>
+            <label class='checkbox-label' for='char-!'>
+            <div class='checkbox-label-inner'>!</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-"' value='"' checked>
+            <label class='checkbox-label' for='char-"'>
+            <div class='checkbox-label-inner'>"</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-#' value='#' checked>
+            <label class='checkbox-label' for='char-#'>
+            <div class='checkbox-label-inner'>#</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-$' value='$' checked>
+            <label class='checkbox-label' for='char-$'>
+            <div class='checkbox-label-inner'>$</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-%' value='%' checked>
+            <label class='checkbox-label' for='char-%'>
+            <div class='checkbox-label-inner'>%</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-&amp;' value='&amp;' checked>
+            <label class='checkbox-label' for='char-&amp;'>
+            <div class='checkbox-label-inner'>&amp;</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-&apos;' value='&apos;' checked>
+            <label class='checkbox-label' for='char-&apos;'>
+            <div class='checkbox-label-inner'>'</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-(' value='(' checked>
+            <label class='checkbox-label' for='char-('>
+            <div class='checkbox-label-inner'>(</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-)' value=')' checked>
+            <label class='checkbox-label' for='char-)'>
+            <div class='checkbox-label-inner'>)</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-*' value='*' checked>
+            <label class='checkbox-label' for='char-*'>
+            <div class='checkbox-label-inner'>*</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-+' value='+' checked>
+            <label class='checkbox-label' for='char-+'>
+            <div class='checkbox-label-inner'>+</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-,' value=',' checked>
+            <label class='checkbox-label' for='char-,'>
+            <div class='checkbox-label-inner'>,</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char--' value='-' checked>
+            <label class='checkbox-label' for='char--'>
+            <div class='checkbox-label-inner'>-</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-.' value='.' checked>
+            <label class='checkbox-label' for='char-.'>
+            <div class='checkbox-label-inner'>.</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-/' value='/' checked>
+            <label class='checkbox-label' for='char-/'>
+            <div class='checkbox-label-inner'>/</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-:' value=':' checked>
+            <label class='checkbox-label' for='char-:'>
+            <div class='checkbox-label-inner'>:</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-;' value=';' checked>
+            <label class='checkbox-label' for='char-;'>
+            <div class='checkbox-label-inner'>;</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-&lt;' value='&lt;' checked>
+            <label class='checkbox-label' for='char-&lt;'>
+            <div class='checkbox-label-inner'>&lt;</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-=' value='=' checked>
+            <label class='checkbox-label' for='char-='>
+            <div class='checkbox-label-inner'>=</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-&gt;' value='&gt;' checked>
+            <label class='checkbox-label' for='char-&gt;'>
+            <div class='checkbox-label-inner'>&gt;</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-?' value='?' checked>
+            <label class='checkbox-label' for='char-?'>
+            <div class='checkbox-label-inner'>?</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-@' value='@' checked>
+            <label class='checkbox-label' for='char-@'>
+            <div class='checkbox-label-inner'>@</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-[' value='[' checked>
+            <label class='checkbox-label' for='char-['>
+            <div class='checkbox-label-inner'>[</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-\' value='\' checked>
+            <label class='checkbox-label' for='char-\'>
+            <div class='checkbox-label-inner'>\</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-]' value=']' checked>
+            <label class='checkbox-label' for='char-]'>
+            <div class='checkbox-label-inner'>]</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-^' value='^' checked>
+            <label class='checkbox-label' for='char-^'>
+            <div class='checkbox-label-inner'>^</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-_' value='_' checked>
+            <label class='checkbox-label' for='char-_'>
+            <div class='checkbox-label-inner'>_</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-`' value='`' checked>
+            <label class='checkbox-label' for='char-`'>
+            <div class='checkbox-label-inner'>`</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-{' value='{' checked>
+            <label class='checkbox-label' for='char-{'>
+            <div class='checkbox-label-inner'>{</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-|' value='|' checked>
+            <label class='checkbox-label' for='char-|'>
+            <div class='checkbox-label-inner'>|</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-}' value='}' checked>
+            <label class='checkbox-label' for='char-}'>
+            <div class='checkbox-label-inner'>}</div>
+            </label>
+
+            <input type='checkbox' class='char-checkbox checkbox' id='char-~' value='~' checked>
+            <label class='checkbox-label' for='char-~'>
+            <div class='checkbox-label-inner'>~</div>
+            </label>
+          </span>
+        </div>
+      </div>
+      <br><br>
+      <button id='generate'>Generate Password</button>
+      <input type='text' id='generated_password'>
+    </div>
+  </body>
+</html>

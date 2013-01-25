@@ -1,0 +1,54 @@
+
+#length_text_input {
+  width: 50px;
+}
+
+#entropy_text_input {
+  width: 50px;
+}
+
+#charset_text_input {
+  width: 500px;
+}
+
+#charset_length_text_input {
+  width: 50px;
+}
+
+#generated_password {
+  width: 200px;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox-label-inner {
+  padding: 5px;
+  margin: 1px;
+  display: inline-block;
+  font-family: monospace;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #FF5050;
+}
+
+.checkbox-label-inner:hover {
+  background-color: #CC4040;
+}
+
+.checkbox:checked + .checkbox-label .checkbox-label-inner{
+  background-color: #6BB247;
+}
+
+.checkbox:checked + .checkbox-label .checkbox-label-inner:hover {
+  background-color: #4B7D32;
+}
+
+.checkbox-label:hover + .char-checkbox-container .checkbox-label-inner {
+  background-color: #CC4040;
+} 
+
+.row-checkbox:checked + .checkbox-label:hover + .char-checkbox-container .checkbox-label-inner {
+  background-color: #4B7D32;
+} 
